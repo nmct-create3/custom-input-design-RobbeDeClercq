@@ -47,6 +47,9 @@
     /* Shadows */
     --shadow-color: #20223a15;
     --inset-shadow: inset 0 1px 1px var(--shadow-color);
+    --focus-shadow-color: #3385FF30;
+    --focus-shadow: 0 0 0 3px var(--focus-shadow-color);
+
 
     /* border radius */
     --radius: 3px;
@@ -710,11 +713,11 @@ input::placeholder {
 */
 
 .c-option-list {
-
+  margin-bottom: 24px;
 }
 
 .c-option-list__item {
-
+  margin-bottom: 12px;
 }
 
 /*
@@ -727,18 +730,72 @@ input::placeholder {
 
 /* checked state */
 
-.c-custom-input-option-hidden:checked + .c-custom-input-option-label {
+.c-option--hidden:checked + .c-custom-option {
     /*
         Do magic stuff here, for example:
-        background-color: red;
+
     */
 }
 
-.c-custom-input-option-hidden:checked + .c-custom-input-option-label .c-custom-input-option__symbol {
-    /*
-        Do magic stuff here, for example:
-        fill: blue;
-    */
+.c-custom-option {
+  display: flex;
+}
+
+.c-custom-option__fake-input{
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  border: 1px solid var(--color-neutral-xxx-light);
+  box-shadow: var(--inset-shadow);
+  border-radius: var(--radius);
+}
+
+.c-custom-option__fake-input--radio{
+  border-radius: 50%;
+}
+
+.c-custom-option__symbol {
+  display: block;
+  opacity: 0; /* Hide the svg initially */
+  transition: all var(--transition-alpha);
+}
+
+.c-custom-option__fake-input--checkbox .c-custom-option__symbol {
+  display: flex;
+  align-self: center;
+  margin: 0 auto;
+  height: 10px;
+  width: 10px;
+  fill: var(--color-alpha);
+}
+
+.c-custom-option__fake-input--radio .c-custom-option__symbol {
+  display: flex;
+  align-self: center;
+  margin: 0 auto;
+  height: 6px;
+  width: 6px;
+  background-color: var(--color-alpha);
+  border-radius: 50%;
+}
+
+.c-option--hidden:checked + .c-custom-option .c-custom-option__symbol {
+    opacity: 1;
+}
+
+/* hover state */
+
+.c-custom-option__fake-input:hover{
+  border-color: var(--color-neutral-xx-light);
+}
+
+/* focused and active state */
+
+.c-option--hidden:focus + .c-label .c-custom-option__fake-input,
+.c-custom-option__fake-input:active{
+    border: 1px solid var(--color-alpha-x-light);
+    box-shadow: var(--focus-shadow);
 }
 
 /*------------------------------------*\
