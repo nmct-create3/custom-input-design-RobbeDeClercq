@@ -798,6 +798,24 @@ input::placeholder {
     box-shadow: var(--focus-shadow);
 }
 
+/*
+    custom toggle
+*/
+
+.c-toggle{
+
+}
+
+.c-custom-toggle__fake-input{
+  display: block;
+  border: 1px solid var(--color-neutral-xxxx-light);
+  background-color: var(--color-neutral-xxx-light);
+  border-radius: 24px;
+  width: 48px;
+  height: 24px;
+}
+
+
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
