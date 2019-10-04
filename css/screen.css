@@ -924,7 +924,7 @@ input::placeholder {
 
 .c-option--hidden:checked + .c-custom-toggle {
     --toggle-translateX: 18px;
-    --toggle-borderColor:var(--color-alpha-dark);
+    --toggle-borderColor:var(--color-alpha-x-light);
     --toggle-backgroundColor: var(--color-alpha);
 
     --toggle-boxShadow:0 0 0 4px;
@@ -936,12 +936,12 @@ input::placeholder {
 }
 
 .c-option--hidden:checked + .c-custom-toggle .c-custom-toggle__fake-input::after{
-  transform: translateX(24px);
+  transform: translateX(calc(var(--toggle-translateX) + 6px));
 }
 
 .c-option--hidden:focus + .c-custom-toggle .c-custom-toggle__fake-input,
 .c-option--hidden:focus + .c-custom-toggle .c-custom-toggle__fake-input:active{
-  border-color: var(--color-alpha-x-light);
+  border-color: var(--toggle-borderColor);
   box-shadow: var(--focus-shadow);
 }
 
